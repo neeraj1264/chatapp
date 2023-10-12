@@ -10,9 +10,8 @@ app.use(express.static("."));
 const server =http.createServer(app);
 const io = socketIo(server, {
     cors: {
-    //   origin: "http://127.0.0.1:5501", 
-    origin: "https://neeraj1264.github.io/chatapp/", 
-    methods: ["GET", "POST"],
+      origin: "http://127.0.0.1:5501", // Replace with the actual origin of your client
+      methods: ["GET", "POST"],
     },
   });
 
