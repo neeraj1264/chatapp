@@ -1,5 +1,7 @@
-let socket = io();
+let socket = io("http://localhost:3000");
 let username;
+
+var audio = new Audio('ring.mp3')
 
 function setUsername(){
   username = document.querySelector("#usernameInput").value;
@@ -23,6 +25,16 @@ document.querySelector("form").addEventListener("submit",function(e){
 socket.on("chat message",function(data){
   let messageContainer = document.createElement("div");
   messageContainer.classList.add("message");
+
+  if (data.username === username) {
+    // Message sent by the user
+    messageContainer.classList.add("sent-message");
+  } else {
+    // Message received from others
+    messageContainer.classList.add("received-message");
+    audio.play();
+  }
+
   let usernameDiv = document.createElement("div");
   usernameDiv.classList.add("username");
   let messageContent = document.createElement("div");
@@ -35,35 +47,3 @@ socket.on("chat message",function(data){
   document.querySelector("#messages").appendChild(messageContainer);
   document.querySelector("#messages").scrollTop =document.querySelector("#messages").scrollHeight ;
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

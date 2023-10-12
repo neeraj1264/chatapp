@@ -3,12 +3,16 @@ body{
     flex-direction: column-reverse;
     height: 100vh;
     margin: 0;
-    background-color: #eff5fb;
+    background: linear-gradient(rgb(144, 144, 246),rgb(133, 229, 133));
 }
 
 #usernameInput {
     margin: 5px;
     width: 50vw;
+}
+#setUsername{
+    display: block;
+    margin: auto;
 }
 #setUsernameButton{
     width: 110px;
@@ -35,6 +39,10 @@ body{
     color: green;
     margin:5px;
 }
+.welcome{
+    display: block;
+    margin: auto;
+}
 input {
     height: 50px;
     margin-right: 5px;
@@ -49,13 +57,14 @@ input {
     height: 50px;
     border-radius: 50%;
     border: none;
-    background-color: skyblue;
+    background-color: transparent;
     color: white;
     font-size: large;
     cursor: pointer;
 }
-#sendButton:hover {
-    background-color: deepskyblue;
+#sendButton img {
+    width: 50px;
+    height: 50px;
 }
 
 #messages {
@@ -65,14 +74,23 @@ input {
 .messageContent {
     margin: 5px;
 }
+/* Add new CSS classes for received and sent messages */
 .message {
-    height: fit-content;
     border: none;
     background-color: white;
     max-width: 80vw;
-    max-height: 80vh;
     width: fit-content;
     border-radius: 5px;
     margin: 10px;
     padding: 10px;
-}
+    clear: both;
+  }
+  
+  .sent-message {
+    float: right;
+  }
+  
+  .received-message {
+    float: left;
+  }
+  
