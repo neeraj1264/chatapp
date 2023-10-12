@@ -47,3 +47,11 @@ socket.on("chat message",function(data){
   document.querySelector("#messages").appendChild(messageContainer);
   document.querySelector("#messages").scrollTop =document.querySelector("#messages").scrollHeight ;
 });
+
+socket.on("system message", function (message) {
+  const messageContainer = document.createElement("div");
+  messageContainer.classList.add("message");
+  messageContainer.classList.add("system-message");
+  messageContainer.innerHTML = message;
+  document.querySelector("#messages").appendChild(messageContainer);
+});
