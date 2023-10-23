@@ -8,21 +8,37 @@
   <!-- <link rel="stylesheet" href="./fontawesome/css/all.css"> -->
 
 </head>
-<body >
+<body>
+
   <div id="setUsername">
-    <input id="usernameInput" autocomplete="off" placeholder="Enter Username" />
-    <button id="setUsernameButton" onclick="setUsername()">Set Username</button>
+    <div class="form-card">
+    <div class="form-title">
+      Welcome 👋 
   </div>
+  <div class="form-subtitle">
+    Select your username to get started
+</div>
+    <div class="auth">
+      <input id="usernameInput" autocomplete="off" placeholder="Enter Username" />
+      <button id="setUsernameButton" onclick="setUsername()">Set Username</button>
+    </div>
+  </div>
+  </div>
+<nav>
+  <div class="header-container" style="display: none;">
+    <img src="chatlogo.png" alt="chatlogo" class="logo">
+    <span class="header-text">ChatLink</span>
+  </div>
+</nav>
+  <div id="messages" style="display: none;"></div>
   <div id="chat">
     <form action="" style="display: flex;">
-      <input id="messageInput" autocomplete="off"/>
+      <input id="messageInput" autocomplete="off" placeholder="Send Message"/>
       <button id="sendButton"><img src="sent.png"></button>
     </form>
   </div>
-
-  <div id="messages"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"></script>
-    <!-- <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"></script> -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     <script src="client.js"></script>
       
   </body>

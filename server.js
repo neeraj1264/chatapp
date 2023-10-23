@@ -10,31 +10,41 @@ app.use(express.static("."));
 const server =http.createServer(app);
 const io = socketIo(server, {
     cors: {
-    //   origin: "http://127.0.0.1:5501", 
-    origin: "https://neeraj1264.github.io/chatapp/",
+      origin: "https://422b-103-164-205-39.ngrok-free.app",
+      origin: "http://127.0.0.1:5500", 
+    // origin: "https://neeraj1264.github.io/chatapp/",
       methods: ["GET", "POST"],
     },
   });
 
-  const connectedUsers = [];
+  const connectedUsers = new Map();
 
 io.on("connection",socket =>{
     console.log("User Connected");
 
     // Send the list of connected users to the newly connected user
-    socket.emit("connected users", connectedUsers);
+    socket.emit("connected users",Array.from(connectedUsers.values()));
 
     socket.on("Set Username", (username) => {
         console.log(` ${username} connected`);
         // Broadcast the username to all connected clients
-        io.emit("system message", `${username} connected`);
+        io.emit("system message", `${username} Join the chat`);
+         // Store the username in the Map
+         connectedUsers.set(socket.id, username);
       });
       
     socket.on("chat message",function(data){
         io.emit("chat message",data);
     });
-    socket.on("disconnect",()=>{
-        console.log("User Disconnected");
+    socket.on("disconnect", () => {
+        const username = connectedUsers.get(socket.id);
+        if (username) {
+            console.log(`${username} Disconnected`);
+            // Remove the user from the Map on disconnect
+            connectedUsers.delete(socket.id);
+            // Broadcast a user-disconnected message
+            io.emit("user disconnected", username);
+        }
     });
 
 });
