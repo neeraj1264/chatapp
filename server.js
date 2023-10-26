@@ -3,14 +3,14 @@ const http = require("http");
 const socketIo = require("socket.io");
 const path = require("path");
 
-const port = 3000;
+const port = 3001;
 const app = express();
 
 app.use(express.static("."));
 const server =http.createServer(app);
 const io = socketIo(server, {
     cors: {
-      origin: "https://422b-103-164-205-39.ngrok-free.app",
+      origin: "https://chatapp-henna-phi.vercel.app",
       origin: "http://127.0.0.1:5500", 
     // origin: "https://neeraj1264.github.io/chatapp/",
       methods: ["GET", "POST"],

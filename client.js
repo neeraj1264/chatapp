@@ -1,5 +1,5 @@
 // let socket = io();
-let socket = io("http://localhost:3000");
+let socket = io("http://localhost:3001");
 let username;
 
 var audio = new Audio('ring.mp3')
