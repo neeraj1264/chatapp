@@ -1,4 +1,4 @@
-let socket = io("https://chatapp-henna-phi.vercel.app");
+let socket = io("wss://chatapp-henna-phi.vercel.app");
 // let socket = io("http://localhost:3001");
 let username;
 
