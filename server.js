@@ -10,7 +10,7 @@ app.use(express.static("."));
 const server =http.createServer(app);
 const io = socketIo(server, {
     cors: {
-      origin: "https://chatapp-henna-phi.vercel.app",
+      // origin: "https://chatapp-henna-phi.vercel.app",
       origin: "http://127.0.0.1:5500", 
     // origin: "https://neeraj1264.github.io/chatapp/",
       methods: ["GET", "POST"],
