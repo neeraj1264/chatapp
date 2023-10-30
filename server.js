@@ -3,15 +3,16 @@ const http = require("http");
 const socketIo = require("socket.io");
 const path = require("path");
 
-const port = 3001;
+const port = 3000;
 const app = express();
 
+app.use(cors());
 app.use(express.static("."));
 const server =http.createServer(app);
 
 const io = socketIo(server, {
     cors: {
-      origin: "http://127.0.0.1:5500", 
+      origin: "http://127.0.0.1:5501", 
       methods: ["GET", "POST"],
     },
   });
