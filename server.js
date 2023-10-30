@@ -3,7 +3,7 @@ const http = require("http");
 const socketIo = require("socket.io");
 const path = require("path");
 
-const port = 3000;
+const port = 3001;
 const app = express();
 
 app.use(cors());
